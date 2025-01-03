@@ -1,26 +1,18 @@
 import React from 'react';
 import { APIProvider, Map } from '@vis.gl/react-google-maps';
-// import { KEY } from '../.env'
+import {RenderingType} from '@vis.gl/react-google-maps';
 
-// require("dotenv").config(); 
-
-// const pg = require("pg");
-// const KEY = new pg.Client(process.env.GOOGLE_MAPS_API_KEY);
-
-// console.log(KEY);
-
+const KEY = import.meta.env.VITE_KEY
 
 export default function Maptest() {
 
     return (
-        <APIProvider apiKey='AIzaSyC1w2rEklDouOkbNQxSg9EVFum0Bn5ouOQ'>
+        <div className='map'>
+        <APIProvider apiKey={KEY}>
             <Map
-                style={{ width: '80vw', height: '80vh' }}
-                defaultCenter={{ lat: 22.54992, lng: 0 }}
-                defaultZoom={3}
-                gestureHandling={'greedy'}
-                disableDefaultUI={true}
+zoom={5} center={{lat: 53.54992, lng: 10.00678}}
             />
         </APIProvider>
+        </div>
     );
 }
